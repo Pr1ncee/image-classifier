@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    image: image-classifier-backend:latest
+    ports:
+      - "8000:8000"
+    links:
+      - "postgres:db"
+    env_file:
+      - ../../backend/.env.backend
+    depends_on:
+      - postgres
+    restart: on-failure
+    volumes:
+      - ../../:/app/
+
+  frontend:
+    image: image-classifier-frontend:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: on-failure
+    volumes:
+      - ../../frontend/:/app/
+
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    env_file:
+      - ../../backend/.env.backend
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
