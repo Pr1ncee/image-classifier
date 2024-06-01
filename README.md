@@ -1,13 +1,29 @@
 # Image Cetogory Classifier
 
+## Table of Contents
+- [The problem](#The-problem)
+  - [Frontend](#Frontend)
+  - [Backend](#Backend)
+  - [AI](#AI)
+- [Prerequisites](#Prerequisites)
+  - [Tested with versions](#Tested-with-versions)
+- [Makefile](#Makefile)
+- [How to run](#How-to-run)
+- [Developer endpoints](#Developer-endpoints)
+- [Example of usage](#Example-of-usage)
+- [Example images](#Example-images)
+- [Notes](#Notes)
+
 ## The problem
 
-### Frontend (Vue.js)
-Create an image upload page with a file selection form.  After loading the image, display it on the page.  
+### Frontend
+Use **Vue.js**.
+Create an image upload page with a file selection form.
+After loading the image, display it on the page.
 Add the ability to select a category from a predefined list (for example, "Food", "Nature", "Cities", etc.).
 Provide a button to send the image and selected category to the server.
 
-### Backend (Django)
+### Backend
 Create a Django project with one application.
 Implement a Django model to store information about images and their categories.
 Set up a view to load images and store them in a database, and categorize them using a pre-trained AI model.
